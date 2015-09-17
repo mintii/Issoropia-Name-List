@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html class="no-js"> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Many thanks to Niels for help and guidance for making this. You can find his website at www.name-generators.com -->
+  <script type="text/javascript">
+
+  function name_generator () {
+    var elf_beginnings = ["Aces-", "Adri-",  "Agas-",  "Agno-",  "Aith-",  "All-",  "Apol-",  "Archi-",  "Ari-",
+    "Basil-",  "Brasi-",  "Cel-",  "Cle-",  "Damo-",  "Dema-",  "Dexi-",  "Diag-",  "Dio-",  "Epi-",  "Era-",  "Euc-",  "Eud-",  "Gorg-",  "Hag-",  "Hec-",  "Hera-",  "Hero-",  "Hesi-",  "Hippi-",  "Isa-",  "Iso-",  "Kar-",  "Katak-",  "Koi-",  "Leo-",  "Les-",    "Lob-",  "Ly-",  "Marc-",  "Meg-",  "Mel-",  "Met-",  "Mil-",  "Myr-",  "Nic-",  "Or-",  "Ori-",  "Pag-",  "Pal-",  "Pers-",  "Phid-",  "Prat-",  "Prax-",  "Proc-",  "Pyr-",  "Sat-",  "Sel-",  "Sim-",  "Sos-",  "Thalas-",  "Thau-",  "Thea-",  "Theo-",  "Thes-", "Xan-",  "Xant-",  "Xeno-", "Zal-", "Zen-"];
+
+    var elf_endings_female = ["-a","-lipha","-na","-theni","-ili","-anta","-anti"];
+    var elf_endings_male = ["-us","-liphon","-nax","-thenex","-ilus","-antus"];
+
+    var randomNumber1 = parseInt(Math.random() * elf_beginnings.length);
+    var randomNumber2 = parseInt(Math.random() * elf_endings_male.length);
+    var randomNumber3 = parseInt(Math.random() * elf_endings_female.length);
+    var elf_name_male = elf_beginnings[randomNumber1] + elf_endings_male[randomNumber2];
+    var elf_name_female = elf_beginnings[randomNumber1] + elf_endings_female[randomNumber3];
+
+    
+
+    //If there's already a name it is removed  
+    if(document.getElementById("result")){
+      document.getElementById("placeholder").removeChild(document.getElementById("result"));
+    }
+    // A div element is created to show the generated name. 
+    //The Name is added as a textnode. Textnode is added to the placeholder.
+
+    var element = document.createElement("div");
+    element.setAttribute("id", "result");
+    element.appendChild(document.createTextNode(elf_name_male));
+    document.getElementById("placeholder").appendChild(element);
+  };
+
+</script>
+
+<style type="text/css">
+body{font-family: arial, serif;}
+#wrapper{border-left:1px solid #cccccc;border-right:1px solid #cccccc;margin:0 auto;padding: 0 20px;width: 700px}
+#generator{background:#e9f3f6;border:1px solid #cccccc;margin:30px 0;font-size:28px;font-weight:bold;padding:50px 0 20px;text-align:center;-moz-border-radius: 5px;-webkit-border-radius: 5px;}
+#generator input{font-size:16px;font-weight:normal;margin-top: 30px}
+#footer{font-size: 10px; color: #999; margin: 30px 0 0 0;}
+#footer a{color:#999}
+</style>
+</head>
+<body>
+  <p>Issoropia Name Generator</p>
+
+
+
+
+  <div id="generator">
+    <div id="placeholder"></div>
+    <input type="button" value="Make name" onclick="name_generator()" />   
+  </div>
+
+</body>
+</html>
