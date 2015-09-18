@@ -21,30 +21,46 @@
     var elf_name_female = elf_beginnings[randomNumber1] + elf_endings_female[randomNumber3];
 
     //If there's already a name it is removed
-    if(document.getElementById("result")){
-      document.getElementById("placeholder").removeChild(document.getElementById("result"));
+    if(document.getElementById("result_male")){
+      document.getElementById("placeholder_male").removeChild(document.getElementById("result_male"));
     }
     // A div element is created to show the generated name.
     //The Name is added as a textnode. Textnode is added to the placeholder.
+    var element = document.createElement("div");
+    element.setAttribute("id", "result_male");
+    element.appendChild(document.createTextNode(elf_name_male));
+    document.getElementById("placeholder_male").appendChild(element);
+
+    if(document.getElementById("result_female")){
+      document.getElementById("placeholder_female").removeChild(document.getElementById("result_female"));
+    }
 
     var element = document.createElement("div");
-    element.setAttribute("id", "result");
-    element.appendChild(document.createTextNode(elf_name_male));
-    document.getElementById("placeholder").appendChild(element);
+    element.setAttribute("id", "result_female");
+    element.appendChild(document.createTextNode(elf_name_female));
+    document.getElementById("placeholder_female").appendChild(element);
   };
 
 </script>
 
 <style type="text/css">
-body{font-family: arial, serif;}
-#wrapper{border-left:1px solid #cccccc;border-right:1px solid #cccccc;margin:0 auto;padding: 0 20px;width: 700px}
-#generator{
+body{
+  font-family: arial, serif;
+  background: url('119.jpg') no-repeat;}
+#wrapper{border-left:1px solid #cccccc;
+  border-right:1px solid #cccccc;
+  margin:0 auto;
+  padding: 0 20px;
+  width: 500px;}
+.name_tabs{
+  float: left;
+  width: 400px;
   background:#e9f3f6;
   border:1px solid #cccccc;
   margin:30px 0;
   font-size:28px;
   font-weight:bold;
-  padding:50px 0 20px;
+  padding:10px;
   text-align:center;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;}
@@ -52,25 +68,37 @@ body{font-family: arial, serif;}
 #generator_header{.h1: 20px;}
 #footer{font-size: 10px; color: #999; margin: 30px 0 0 0;}
 #footer a{color:#999}
+.floater{
+  float: right;
+  width: 400px;
+}
 </style>
 </head>
 
 <body>
   <h1>Issoropia Elf Name Generator</h1>
 
-   <div id="generator">
+  <div class="floater"></div>
+
+  <div id="wrapper">
+  <div class="name_tabs">
+   <div id="generator_male">
     <div id="generator_header">
         <h2>Male Names</h1>
     </div>
-    <div id="placeholder"></div>
-    <input type="button" value="Make name" onclick="name_generator()" />
-
-    <div id="generator">
+    <div id="placeholder_male"></div>
+    <input type="button" value="Make male name" onclick="name_generator()" />
+  </div>
+  </div>
+  <div class="name_tabs">
+    <div id="generator_female">
     <div id="generator_header">
         <h2>Female Names</h1>
     </div>
-    <div id="placeholder"></div>
-    <input type="button" value="Make name" onclick="name_generator()" />
+    <div id="placeholder_female"></div>
+    <input type="button" value="Make female name" onclick="name_generator()" />
+
+  </div>
   </div>
 
 </body>
