@@ -5,101 +5,70 @@
   <meta charset="utf-8">
   <title>Issoropia Elf Name Generator</title>
   <!-- Many thanks to Niels for help and guidance for making this. You can find his website at www.name-generators.com -->
-  <script type="text/javascript">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+      function name_generator () {
+        var elf_beginnings = ["Aces", "Adri",  "Agas",  "Agno",  "Aith",  "All",  "Apol",  "Archi",  "Ari",
+        "Basil",  "Brasi",  "Cel",  "Cle",  "Damo",  "Dema",  "Dexi",  "Diag",  "Dio",  "Epi",  "Era",  "Euc",  "Eud",  "Gorg",  "Hag",  "Hec",  "Hera", "Hero", "Hesi", "Hippi",  "Isa",  "Iso",  "Kar",  "Katak",  "Koi",  "Leo",  "Les",    "Lob",  "Ly",  "Marc",  "Meg",  "Mel",  "Met",  "Mil",  "Myr",  "Nic",  "Or",  "Ori",  "Pag",  "Pal",  "Pers",  "Phid",  "Prat",  "Prax",  "Proc",  "Pyr",  "Sat",  "Sel",  "Sim",  "Sos",  "Thalas",  "Thau",  "Thea",  "Theo",  "Thes", "Xan",  "Xant",  "Xeno", "Zal", "Zen"];
 
-  function name_generator () {
-    var elf_beginnings = ["Aces", "Adri",  "Agas",  "Agno",  "Aith",  "All",  "Apol",  "Archi",  "Ari",
-    "Basil",  "Brasi",  "Cel",  "Cle",  "Damo",  "Dema",  "Dexi",  "Diag",  "Dio",  "Epi",  "Era",  "Euc",  "Eud",  "Gorg",  "Hag",  "Hec",  "Hera", "Hero", "Hesi", "Hippi",  "Isa",  "Iso",  "Kar",  "Katak",  "Koi",  "Leo",  "Les",    "Lob",  "Ly",  "Marc",  "Meg",  "Mel",  "Met",  "Mil",  "Myr",  "Nic",  "Or",  "Ori",  "Pag",  "Pal",  "Pers",  "Phid",  "Prat",  "Prax",  "Proc",  "Pyr",  "Sat",  "Sel",  "Sim",  "Sos",  "Thalas",  "Thau",  "Thea",  "Theo",  "Thes", "Xan",  "Xant",  "Xeno", "Zal", "Zen"];
+        var elf_endings_female = ["a","lipha","na","theni","ili","anta","anti"];
+        var elf_endings_male = ["us","liphon","nax","thenex","ilus","antus"];
 
-    var elf_endings_female = ["a","lipha","na","theni","ili","anta","anti"];
-    var elf_endings_male = ["us","liphon","nax","thenex","ilus","antus"];
+        var randomNumber1 = parseInt(Math.random() * elf_beginnings.length);
+        var randomNumber2 = parseInt(Math.random() * elf_endings_male.length);
+        var randomNumber3 = parseInt(Math.random() * elf_endings_female.length);
+        var elf_name_male = elf_beginnings[randomNumber1] + elf_endings_male[randomNumber2];
+        var elf_name_female = elf_beginnings[randomNumber1] + elf_endings_female[randomNumber3];
 
-    var randomNumber1 = parseInt(Math.random() * elf_beginnings.length);
-    var randomNumber2 = parseInt(Math.random() * elf_endings_male.length);
-    var randomNumber3 = parseInt(Math.random() * elf_endings_female.length);
-    var elf_name_male = elf_beginnings[randomNumber1] + elf_endings_male[randomNumber2];
-    var elf_name_female = elf_beginnings[randomNumber1] + elf_endings_female[randomNumber3];
+        //If there's already a name it is removed
+        if(document.getElementById("result_male")){
+          document.getElementById("placeholder_male").removeChild(document.getElementById("result_male"));
+      }
+        // A div element is created to show the generated name.
+        //The Name is added as a textnode. Textnode is added to the placeholder.
+        var element = document.createElement("div");
+        element.setAttribute("id", "result_male");
+        element.appendChild(document.createTextNode(elf_name_male));
+        document.getElementById("placeholder_male").appendChild(element);
 
-    //If there's already a name it is removed
-    if(document.getElementById("result_male")){
-      document.getElementById("placeholder_male").removeChild(document.getElementById("result_male"));
-    }
-    // A div element is created to show the generated name.
-    //The Name is added as a textnode. Textnode is added to the placeholder.
-    var element = document.createElement("div");
-    element.setAttribute("id", "result_male");
-    element.appendChild(document.createTextNode(elf_name_male));
-    document.getElementById("placeholder_male").appendChild(element);
+        if(document.getElementById("result_female")){
+          document.getElementById("placeholder_female").removeChild(document.getElementById("result_female"));
+        }
 
-    if(document.getElementById("result_female")){
-      document.getElementById("placeholder_female").removeChild(document.getElementById("result_female"));
-    }
-
-    var element = document.createElement("div");
-    element.setAttribute("id", "result_female");
-    element.appendChild(document.createTextNode(elf_name_female));
-    document.getElementById("placeholder_female").appendChild(element);
-  };
-
-</script>
-
-<style type="text/css">
-body{
-  font-family: arial, serif;
-  background: url('119.jpg') no-repeat;}
-#wrapper{border-left:1px solid #cccccc;
-  border-right:1px solid #cccccc;
-  margin:0 auto;
-  padding: 0 20px;
-  width: 500px;}
-.name_tabs{
-  float: left;
-  width: 400px;
-  background:#e9f3f6;
-  border:1px solid #cccccc;
-  margin:30px 0;
-  font-size:28px;
-  font-weight:bold;
-  padding:10px;
-  text-align:center;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;}
-#generator input{font-size:16px;font-weight:normal;margin-top: 30px}
-#generator_header{.h1: 20px;}
-#footer{font-size: 10px; color: #999; margin: 30px 0 0 0;}
-#footer a{color:#999}
-.floater{
-  float: right;
-  width: 400px;
-}
-</style>
+          var element = document.createElement("div");
+          element.setAttribute("id", "result_female");
+          element.appendChild(document.createTextNode(elf_name_female));
+          document.getElementById("placeholder_female").appendChild(element);
+        };
+    </script>
 </head>
 
 <body>
-  <h1>Issoropia Elf Name Generator</h1>
+  <div id="title">
+    <h1>Issoropia Elf Name Generator</h1>
+</div>
+<div class="floater"></div>
 
-  <div class="floater"></div>
-
-  <div id="wrapper">
+<div id="wrapper">
   <div class="name_tabs">
-   <div id="generator_male">
-    <div id="generator_header">
-        <h2>Male Names</h1>
+     <div id="generator_male">
+        <div id="generator_header">
+            <h2>Male Names</h2>
+            </div>
+            <div id="placeholder_male"></div>
+        </div>
     </div>
-    <div id="placeholder_male"></div>
-    <input type="button" value="Make male name" onclick="name_generator()" />
-  </div>
-  </div>
-  <div class="name_tabs">
-    <div id="generator_female">
-    <div id="generator_header">
-        <h2>Female Names</h1>
+    <div id="button">
+        <input type="button" value="Click to generate names." onclick="name_generator()" />
     </div>
-    <div id="placeholder_female"></div>
-    <input type="button" value="Make female name" onclick="name_generator()" />
-
-  </div>
-  </div>
-
+    <div class="name_tabs">
+        <div id="generator_female">
+            <div id="generator_header">
+                <h2>Female Names</h2>
+                </div>
+                <div id="placeholder_female"></div>
+            </div>
+        </div>
 </body>
 </html>
